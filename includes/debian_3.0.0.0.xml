@@ -1,0 +1,4 @@
+<download target="/tmp/huggle_3.0.0.0.deb">http://tools.wmflabs.org/huggle/files/huggle_3.0.0.0.deb</download>
+<exec root=true>dpkg -i /tmp/huggle_3.0.0.0.deb</exec>
+<exec>huggle</exec>
+<exit silent=true></exit>
