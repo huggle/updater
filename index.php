@@ -12,6 +12,11 @@ class client
         $failed = true;
     }
 
+    public static function Latest()
+    {
+        return "3.0.0.1";
+    }
+
     function Failed()
     {
         return $this->failed;
@@ -20,7 +25,7 @@ class client
     function IsObsolete()
     {
         if ($this->client_version == "3.0.0.2") { return true; }
-        return ($this->client_version != "3.0.0.1");
+        return ($this->client_version != self::Latest());
     }
 
     function __construct()
@@ -47,6 +52,7 @@ if (!$c->Failed())
 {
     if ($c->IsObsolete())
     {
+        echo "<obsolete>" . client::Latest() . "</obsolete>\n";
         // let's check a definition for this system
         $file = "includes/" . $c->client_os . "_" . $c->client_version . ".xml";
         if (file_exists($file))
