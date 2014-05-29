@@ -14,7 +14,7 @@ class client
 
     public static function Latest()
     {
-        return "3.0.0.1";
+        return "3.0.0";
     }
 
     function Failed()
@@ -24,7 +24,6 @@ class client
 
     function IsObsolete()
     {
-        if ($this->client_version == "3.0.0.2") { return true; }
         return ($this->client_version != self::Latest());
     }
 
@@ -64,6 +63,9 @@ if (!$c->Failed())
             if (file_exists($file))
             {
                 include ($file);
+            } else if (file_exists("includes/unknown.xml"))
+            {
+                include ("includes/unknown.xml");
             } else
             {
                 echo "<error>No data for your version</error>\n";
