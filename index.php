@@ -24,7 +24,7 @@ class client
 
     function IsObsolete()
     {
-        return ($this->client_version != self::Latest());
+        return version_compare ( $this->client_version , self::Latest() , '<' );
     }
 
     function __construct()
