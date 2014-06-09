@@ -61,7 +61,7 @@ class client
         $this->client_version = preg_replace('/[^a-zA-Z0-9-_\.]/','', $_GET['version']);
         $this->client_os = preg_replace('/[^a-zA-Z0-9-_\.]/','', $_GET['os']);
         
-        if(isset($_GET['beta']))
+        if(isset($_GET['notifybeta']))
         {
         	$this->beta = true;
         }
