@@ -1,20 +1,21 @@
-<?
+<?php
 
 class client
 {
     public $client_os = 'unknown';
     public $client_version = 'unknown';
+    public $beta = false;
     private $failed = false;
-
-    static function ShowEr($e)
-    {
-        echo "<error>ERROR: $e</error>\n";
-        $failed = true;
-    }
+    private $errmsg = "";
 
     public static function Latest()
     {
-        return "3.0.0";
+        return "3.0.1";
+    }
+
+    public static function LatestBeta()
+    {
+    	return "3.0.2b1";
     }
 
     function Failed()
@@ -22,56 +23,84 @@ class client
         return $this->failed;
     }
 
+    private function setError($e)
+    {
+        $this->errmsg = "<error>ERROR: $e</error>\n";
+        $this->failed = true;
+    }
+
+    function getErrorMsg()
+    {
+        return $this->errmsg;
+    }
+
     function IsObsolete()
     {
-        return version_compare ( $this->client_version , self::Latest() , '<' );
+        return version_compare($this->client_version, $this->getNewVersion(), '<');
+    }
+
+    function getNewVersion()
+    {
+        // here can you change the logic to return the latest version based on e.g. os
+        if ($this->beta) {
+            return self::LatestBeta();
+        } else {
+            return self::Latest();
+        }
     }
 
     function __construct()
     {
-        if (!isset($_GET['os']))
-        {
-            client::ShowEr("System must be defined");
+        if (!isset($_GET['os'])) {
+            $this->setError("System must be defined");
             return;
         }
-        if (!isset($_GET['version']))
-        {
-            client::ShowEr("Version must be defined");
+        if (!isset($_GET['version'])) {
+            $this->setError("Version must be defined");
             return;
         }
-        $this->client_version = $_GET['version'];
-        $this->client_os = $_GET['os'];
+        $this->client_version = preg_replace('/[^a-zA-Z0-9-_\.]/', '', $_GET['version']);
+        $this->client_os = preg_replace('/[^a-zA-Z0-9-_\.]/', '', $_GET['os']);
+
+        if (isset($_GET['notifybeta'])) {
+            $this->beta = true;
+        }
     }
 }
 
+$c = new client();
 
-echo "<?xml version=\"1.0\"?>\n\n<update>\n";
-$c = new client;
-if (!$c->Failed())
-{
-    if ($c->IsObsolete())
-    {
-        echo "<obsolete>" . client::Latest() . "</obsolete>\n";
-        // let's check a definition for this system
-        $file = "includes/" . $c->client_os . "_" . $c->client_version . ".xml";
-        if (file_exists($file))
-        {
-            include ($file);
-        } else
-        {
-            $file = "includes/" . "none_" . $c->client_version . ".xml";
-            if (file_exists($file))
-            {
+header("Content-type: text/xml");
+echo "<?xml version=\"1.0\"?>\n";
+echo "<update>\n";
+if (!$c->Failed()) {
+    if ($c->IsObsolete()) {
+        // TODO: migrate away from "obsolete"
+        echo "<obsolete>" . $c->getNewVersion() . "</obsolete>\n";
+        echo "<newversion>" . $c->getNewVersion() . "</newversion>\n";
+        if ($c->beta) {
+            include ("includes/beta.xml");
+        } else {
+            // let's check a definition for this system
+            $file = "includes/" . $c->client_os . "_" . $c->client_version . ".xml";
+            if (file_exists($file)) {
                 include ($file);
-            } else if (file_exists("includes/unknown.xml"))
-            {
-                include ("includes/unknown.xml");
-            } else
-            {
-                echo "<error>No data for your version</error>\n";
+            } else {
+                $file = "includes/" . "none_" . $c->client_version . ".xml";
+                if (file_exists($file)) {
+                    include ($file);
+                } else if (file_exists("includes/unknown.xml")) {
+                        include ("includes/unknown.xml");
+                    } else {
+                        echo "<error>No data for your version</error>\n";
+                    }
             }
         }
+    } else {
+        echo "<nonewversion />\n";
     }
+} else {
+    echo $c->getErrorMsg();
 }
 echo "</update>";
 
