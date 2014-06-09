@@ -6,12 +6,7 @@ class client
     public $client_version = 'unknown';
     public $beta = false;
     private $failed = false;
-
-    static function ShowEr($e)
-    {
-        echo "<error>ERROR: $e</error>\n";
-        $failed = true;
-    }
+    private $errmsg = "";
 
     public static function Latest()
     {
@@ -27,6 +22,17 @@ class client
     function Failed()
     {
         return $this->failed;
+    }
+    
+    private function setError($e)
+    {
+    	$this->errmsg = "<error>ERROR: $e</error>\n";
+    	$this->failed = true;
+    }
+    
+    function getErrorMsg()
+    {
+    	return $this->errmsg;
     }
     
     function IsObsolete()
@@ -48,14 +54,12 @@ class client
     {
         if (!isset($_GET['os']))
         {
-            client::ShowEr("System must be defined");
-            $this->failed = true;
+			$this->setError("System must be defined");
             return;
         }
         if (!isset($_GET['version']))
         {
-            client::ShowEr("Version must be defined");
-            $this->failed = true;
+            $this->setError("Version must be defined");
             return;
         }
         $this->client_version = preg_replace('/[^a-zA-Z0-9-_\.]/','', $_GET['version']);
@@ -105,6 +109,8 @@ if (!$c->Failed())
     } else {
     	echo "<nonewversion />\n";
     }
+} else {
+	echo $c->getErrorMsg();
 }
 echo "</update>";
 
