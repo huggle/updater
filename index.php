@@ -10,12 +10,12 @@ class client
 
     public static function Latest()
     {
-        return "3.0.1";
+        return "3.0.2";
     }
 
     public static function LatestBeta()
     {
-    	return "3.0.2b1";
+    	return self::Latest(); // not beta atm
     }
 
     function Failed()
@@ -75,9 +75,7 @@ echo "<?xml version=\"1.0\"?>\n";
 echo "<update>\n";
 if (!$c->Failed()) {
     if ($c->IsObsolete()) {
-        // TODO: migrate away from "obsolete"
-        echo "<obsolete>" . $c->getNewVersion() . "</obsolete>\n";
-        echo "<newversion>" . $c->getNewVersion() . "</newversion>\n";
+        echo "<obsolete>" . $c->getNewVersion() . "</obsolete>\n"; // <obsolete> should contain new version number
         if ($c->beta) {
             include ("includes/beta.xml");
         } else {
