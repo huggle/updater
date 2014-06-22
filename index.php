@@ -10,12 +10,12 @@ class client
 
     public static function Latest()
     {
-        return "3.0.2";
+        return "3.0.3";
     }
 
     public static function LatestBeta()
     {
-    	return self::Latest(); // not beta atm
+    	return self::Latest(); // no beta atm
     }
 
     function Failed()
@@ -36,6 +36,8 @@ class client
 
     function IsObsolete()
     {
+        if ($this->client_os == "huggle-devs")
+            return false;
         return version_compare($this->client_version, $this->getNewVersion(), '<');
     }
 
