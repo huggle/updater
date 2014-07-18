@@ -10,7 +10,7 @@ class client
 
     public static function Latest()
     {
-        return "3.0.4";
+        return "3.0.5";
     }
 
     public static function LatestBeta()
