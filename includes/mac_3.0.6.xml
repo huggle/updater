@@ -1,5 +1,5 @@
 <download target="/tmp/huggle_3.0.6.dmg">https://github.com/huggle/huggle3-qt-lx/releases/download/3.0.6/huggle_3.0.6.dmg</download>
 <exec>hdiutil attach /tmp/huggle_3.0.6.dmg</exec>
-<exec>cp /Volumes/huggle/huggle.app /Applications</exec>
-<exec>open /Applications/huggle.app</exec>
+<exec>cp -f /Volumes/huggle/huggle.app ~/Applications</exec>
+<exec>open ~/Applications/huggle.app</exec>
 <exit silent=true></exit>
