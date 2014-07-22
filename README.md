@@ -1,4 +1,4 @@
 updater
 =======
 
-this is an updater for huggle
+This is an updater for Huggle.
