@@ -77,6 +77,14 @@ echo "<?xml version=\"1.0\"?>\n";
 echo "<update>\n";
 if (!$c->Failed()) {
     if ($c->IsObsolete()) {
+        /*
+         * chain for checking for xml-File, first fit
+         * 1) beta
+         * 2) os + client_version match
+         * 3) client_version match
+         * 4) os match
+         * 5) remaining: unknown.xml
+         */
         echo "<obsolete>" . $c->getNewVersion() . "</obsolete>\n"; // <obsolete> should contain new version number
         if ($c->beta) {
             include ("includes/beta.xml");
@@ -84,16 +92,22 @@ if (!$c->Failed()) {
             // let's check a definition for this system
             $file = "includes/" . $c->client_os . "_" . $c->client_version . ".xml";
             if (file_exists($file)) {
+                // os + old client_version match
                 include ($file);
+            } else  if (file_exists("includes/" . "none_" . $c->client_version . ".xml")){
+                // old client_version match
+                include ("includes/" . "none_" . $c->client_version . ".xml");
+
+            } else if(file_exists("includes/" . $c->client_os . ".xml")){
+                // os match
+                include ("includes/" . $c->client_os . ".xml");
+
+            } else if (file_exists("includes/unknown.xml")) {
+            	// no known match
+                include ("includes/unknown.xml");
+
             } else {
-                $file = "includes/" . "none_" . $c->client_version . ".xml";
-                if (file_exists($file)) {
-                    include ($file);
-                } else if (file_exists("includes/unknown.xml")) {
-                        include ("includes/unknown.xml");
-                    } else {
-                        echo "<error>No data for your version</error>\n";
-                    }
+                echo "<error>No data for your version</error>\n";
             }
         }
     } else {
