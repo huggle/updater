@@ -79,14 +79,14 @@ if (!$c->Failed()) {
     if ($c->IsObsolete()) {
         /*
          * chain for checking for xml-File, first fit
-         * 1) beta
+         * 1) beta (if beta version different from main -> there is a beta)
          * 2) os + client_version match
          * 3) client_version match
          * 4) os match
          * 5) remaining: unknown.xml
          */
         echo "<obsolete>" . $c->getNewVersion() . "</obsolete>\n"; // <obsolete> should contain new version number
-        if ($c->beta) {
+        if ($c->beta && Client::LatestBeta() !== Client::Latest()) {
             include ("includes/beta.xml");
         } else {
             // let's check a definition for this system
