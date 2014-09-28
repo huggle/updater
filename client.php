@@ -1,4 +1,4 @@
-<?
+<?php
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
 //the Free Software Foundation, either version 3 of the License, or
@@ -19,10 +19,13 @@ class client
 
     public static function Latest()
     {
-        if ($this->client_os == 'mac')
-            return "3.1.3";
-
         return "3.1.4";
+    }
+
+    public static function LatestMac()
+    {
+    	// return self::Latest();
+    	return "3.1.3";
     }
 
     public static function LatestBeta()
@@ -59,6 +62,8 @@ class client
         if ($this->beta) {
             return self::LatestBeta();
         } else {
+        	if ($this->client_os == 'mac')
+        		return self::LatestMac();
             return self::Latest();
         }
     }
