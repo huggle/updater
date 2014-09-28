@@ -19,7 +19,7 @@ class client
 
     public static function Latest()
     {
-        if ($client_os == 'mac')
+        if ($this->client_os == 'mac')
             return "3.1.3";
 
         return "3.1.4";
