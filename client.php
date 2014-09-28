@@ -19,7 +19,10 @@ class client
 
     public static function Latest()
     {
-        return "3.1.0";
+        if ($client_os == 'mac')
+            return "3.1.3";
+
+        return "3.1.4";
     }
 
     public static function LatestBeta()
