@@ -13,6 +13,7 @@ class client
 {
     public $client_os = 'unknown';
     public $client_version = 'unknown';
+    public $client_lang = 'unknown';
     public $beta = false;
     private $failed = false;
     private $errmsg = "";
@@ -78,6 +79,8 @@ class client
             $this->setError("Version must be defined");
             return;
         }
+        if (isset($_GET['language']))
+            $this->client_lang = $_GET['language'];
         $this->client_version = preg_replace('/[^a-zA-Z0-9-_\.]/', '', $_GET['version']);
         $this->client_os = preg_replace('/[^a-zA-Z0-9-_\.]/', '', $_GET['os']);
 

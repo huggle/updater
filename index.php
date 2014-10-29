@@ -23,7 +23,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 else
     $ip = $_SERVER['REMOTE_ADDR'];
-$log = date('m/d/Y h:i:s a', time()) . ": update check, IP hash: " . md5($ip) . " version: " . $c->client_version . " os: " . $c->client_os . "\n";
+$log = date('m/d/Y h:i:s a', time()) . ": update check, IP hash: " . md5($ip) . " version: " . $c->client_version . " pref_lang: " . $c->client_lang . " os: " . $c->client_os . "\n";
 file_put_contents("updates.txt", $log, FILE_APPEND);
 
 header("Content-type: text/xml");
