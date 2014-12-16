@@ -14,6 +14,7 @@ class client
     public $client_os = 'unknown';
     public $client_version = 'unknown';
     public $client_lang = 'unknown';
+    public $client_test = false;
     public $beta = false;
     private $failed = false;
     private $errmsg = "";
@@ -52,6 +53,8 @@ class client
 
     function IsObsolete()
     {
+        if ($this->client_test)
+            return true;
         if ($this->client_os == "huggle-devs")
             return false;
         return version_compare($this->client_version, $this->getNewVersion(), '<');
@@ -79,6 +82,8 @@ class client
             $this->setError("Version must be defined");
             return;
         }
+        if (isset($_GET['test']))
+            $this->client_test = true;
         if (isset($_GET['language']))
             $this->client_lang = $_GET['language'];
         $this->client_version = preg_replace('/[^a-zA-Z0-9-_\.]/', '', $_GET['version']);
