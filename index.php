@@ -44,7 +44,10 @@ if (!$c->Failed()) {
             include ("includes/beta.xml");
         } else {
             // let's check a definition for this system
-            $file = "includes/" . $c->client_os . "_" . $c->client_version . ".xml";
+            if ($c->client_test)
+                $file = "includes/" . $c->client_os . "_dev_" . $c->client_version . ".xml";
+            else
+                $file = "includes/" . $c->client_os . "_" . $c->client_version . ".xml";
             if (file_exists($file)) {
                 // os + old client_version match
                 include ($file);
