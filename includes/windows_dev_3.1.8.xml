@@ -1,0 +1,64 @@
+<!--
+b16a6ef4a3a5fe39acde990b441f0507  ../../files/icudt53.dll                                                                                                                           
+0cae683528630931f1661af5d0d26252  ../../files/icuin53.dll                                                                                                                           
+dcf966adf0bee56a7c3d09ddb8417b5b  ../../files/icuuc53.dll                                                                                                                           
+796fce3a4604406408734d945ffcd616  ../../files/libcore.dll                                                                                                                           
+<download compare="" to="" md5="   ">http://tools.wmflabs.org/huggle/files/</download>
+4aa1de28ba1b547dbf2588f9648eef4b  ../../files/libeay32.dll                                                                                                                          
+df78c40b50fe24b703da9a6fd332335a  ../../files/libgcc_s_dw2-1.dll                                                                                                                    
+be5134cfe5f8656a08b5649962ae27f0  ../../files/libstdc++-6.dll                                                                                                                       
+9bb3170d6ec9d4523e74bd94fca7a9aa  ../../files/libwinpthread-1.dll                                                                                                                   
+66451276ed52097a41395e2d2d71cc3e  ../../files/Qt5Core.dll                                                                                                                           
+a796438d8bc36b54716f0ae09cf10bb5  ../../files/Qt5Declarative.dll                                                                                                                    
+5e6c2cc7a38dfdb378eae2bba8c362a9  ../../files/Qt5Gui.dll                                                                                                                            
+5c8aaa9706a7a1a21e634641942a35a3  ../../files/Qt5Multimedia.dll                                                                                                                     
+c4697ffe7022136ad534b8c92ca9b26c  ../../files/Qt5MultimediaWidgets.dll                                                                                                              
+e86efed7972f759fdbd44ac67495104f  ../../files/Qt5Network.dll                                                                                                                        
+e5fc6fb1338e7ded6bc2f7b86302d891  ../../files/Qt5OpenGL.dll                                                                                                                         
+1e33c35bdfc8d1a7ea185c8f7d12afee  ../../files/Qt5Positioning.dll                                                                                                                    
+9caa1ccc007b7178391c58ae958470ce  ../../files/Qt5PrintSupport.dll                                                                                                                   
+7287010ed92d5d50492b8d5fecc13416  ../../files/Qt5Qml.dll                                                                                                                            
+1b29ad00e28d633e47278540c1559996  ../../files/Qt5Quick.dll                                                                                                                          
+8d03b709a8d3eae16ee02929e74d097b  ../../files/Qt5Script.dll
+fb838cbfe6b5fe0d48752c3e444c6299  ../../files/Qt5Sensors.dll
+ac47d65525385a2f47afa5e3d15f8a5c  ../../files/Qt5Sql.dll
+5823c4c6d8a196bd6c5203c171b14290  ../../files/Qt5WebChannel.dll
+ab31b5c00d879ca926beb71094cb9857  ../../files/Qt5WebKit.dll
+eaf804276cf9cc7dacf96103e0608af1  ../../files/Qt5WebKitWidgets.dll
+2b78444fb622bbd6080063a53653c400  ../../files/Qt5Widgets.dll
+4126ea1d0e2adba2ef56402dc7156959  ../../files/Qt5Xml.dll
+2c2b73b53714550f0fd113adf66bec89  ../../files/Qt5XmlPatterns.dll
+65e4edff979798b859f1f315c006f10d  ../../files/ssleay32.dll
+c7204f1216ed17e81e8152a4deb45a5a  public_html/files/3.1.8/huggle.exe
+fccf4d649ecdb2a70284f0a3fb703aa2  public_html/files/3.1.8/huggle.ico
+aff5be0971a3764f7fef050af903c389  public_html/files/3.1.8/libcore.dll
+64a0069ae985f6122c67fe1b6177985d  public_html/files/3.1.8/libcore.dll.a
+146db154f81a6d2200e96fc0cc9810f6  public_html/files/3.1.8/libhuggle_en.dll
+b7689b8ddf2bee2077cff83ccb59dde1  public_html/files/3.1.8/libhuggle_md.dll
+f2ab4fdf831642527f2a6a09a2e9ac3e  public_html/files/3.1.8/py_hug.exe
+-->
+<download compare="$root/Qt5Network.dll" to="Qt5Network.dll" md5="e86efed7972f759fdbd44ac67495104f">http://tools.wmflabs.org/huggle/files/Qt5Network.dll</download>
+<download compare="$root/Qt5Gui.dll" to="Qt5Gui.dll" md5="5e6c2cc7a38dfdb378eae2bba8c362a9">http://tools.wmflabs.org/huggle/files/Qt5Gui.dll</download>
+<download compare="$root/icuuc53.dll" to="icuuc53.dll" md5="dcf966adf0bee56a7c3d09ddb8417b5b">http://tools.wmflabs.org/huggle/files/icuuc53.dll</download>
+<download compare="$root/libcore.dll" to="libcore.dll" md5="796fce3a4604406408734d945ffcd616">http://tools.wmflabs.org/huggle/files/libcore.dll</download>
+<download compare="$root/libeay32.dll" to="libeay32.dll" md5="4aa1de28ba1b547dbf2588f9648eef4b">http://tools.wmflabs.org/huggle/files/libeay32.dll</download>
+<download compare="$root/libgcc_s_dw2-1.dll" to="libgcc_s_dw2-1.dll" md5="df78c40b50fe24b703da9a6fd332335a">http://tools.wmflabs.org/huggle/files/libgcc_s_dw2-1.dll</download>
+<download compare="$root/libstdc++-6.dll" to="libstdc++-6.dll" md5="be5134cfe5f8656a08b5649962ae27f0">http://tools.wmflabs.org/huggle/files/libstdc++-6.dll</download>
+<download compare="$root/libwinpthread-1.dll" to="libwinpthread-1.dll" md5="9bb3170d6ec9d4523e74bd94fca7a9aa">http://tools.wmflabs.org/huggle/files/libwinpthread-1.dll</download>
+<download compare="$root/Qt5Core.dll" to="Qt5Core.dll" md5="66451276ed52097a41395e2d2d71cc3e">http://tools.wmflabs.org/huggle/files/Qt5Core.dll</download>
+<download compare="$root/Qt5Declarative.dll" to="Qt5Declarative.dll" md5="a796438d8bc36b54716f0ae09cf10bb5">http://tools.wmflabs.org/huggle/files/Qt5Declarative.dll</download>
+<download compare="$root/Qt5Multimedia.dll" to="Qt5Multimedia.dll" md5="5c8aaa9706a7a1a21e634641942a35a3">http://tools.wmflabs.org/huggle/files/Qt5Multimedia.dll</download>
+<download compare="$root/Qt5MultimediaWidgets.dll" to="Qt5MultimediaWidgets.dll" md5="c4697ffe7022136ad534b8c92ca9b26c">http://tools.wmflabs.org/huggle/files/Qt5MultimediaWidgets.dll</download>
+<download to="huggle.exe" md5="c7204f1216ed17e81e8152a4deb45a5a">http://tools.wmflabs.org/huggle/files/3.1.8/huggle.exe</download>
+<download compare="$root/huggle.ico" to="huggle.ico" md5="fccf4d649ecdb2a70284f0a3fb703aa2">http://tools.wmflabs.org/huggle/files/3.1.8/huggle.ico</download>
+<download to="libcore.dll" md5="aff5be0971a3764f7fef050af903c389">http://tools.wmflabs.org/huggle/files/3.1.8/libcore.dll</download>
+<download to="libcore.dll.a" md5="64a0069ae985f6122c67fe1b6177985d">http://tools.wmflabs.org/huggle/files/3.1.8/libcore.dll.a</download>
+<download to="extensions/libhuggle_en.dll" md5="146db154f81a6d2200e96fc0cc9810f6">http://tools.wmflabs.org/huggle/files/3.1.8/libhuggle_en.dll</download>
+<download to="extensions/libhuggle_md.dll" md5="b7689b8ddf2bee2077cff83ccb59dde1">http://tools.wmflabs.org/huggle/files/3.1.8/libhuggle_md.dll</download>
+<download to="py_hug.exe" md5="f2ab4fdf831642527f2a6a09a2e9ac3e">http://tools.wmflabs.org/huggle/files/3.1.8/py_hug.exe</download>
+<download compare="$root/Qt5OpenGL.dll" to="Qt5OpenGL.dll" md5="e5fc6fb1338e7ded6bc2f7b86302d891">http://tools.wmflabs.org/huggle/files/Qt5OpenGL.dll</download>
+<download compare="$root/Qt5Positioning.dll" to="Qt5Positioning.dll" md5="1e33c35bdfc8d1a7ea185c8f7d12afee">http://tools.wmflabs.org/huggle/files/Qt5Positioning.dll</download>
+<remove elevated="true" recursive="true">$root</remove>
+<folder elevated="true">$root</folder>
+<copy from="$root_bck/huggle.exe" to="$root/huggle.exe"></copy>
+<copy recursive="true" elevated="true" from="$temp" to="$root"></copy>
