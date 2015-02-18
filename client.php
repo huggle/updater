@@ -63,13 +63,11 @@ class client
     function getNewVersion()
     {
         // here can you change the logic to return the latest version based on e.g. os
-        if ($this->beta) {
+        if ($this->beta)
             return self::LatestBeta();
-        } else {
-        	if ($this->client_os == 'mac')
-        		return self::LatestMac();
-            return self::Latest();
-        }
+        else if ($this->client_os == 'mac')
+            return self::LatestMac();
+        return self::Latest();
     }
 
     function __construct()
