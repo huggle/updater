@@ -21,7 +21,7 @@ class client
 
     public static function Latest()
     {
-        return "3.3.0";
+        return "3.3.1";
     }
 
     public static function LatestMac()
