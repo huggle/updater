@@ -26,8 +26,8 @@ class client
 
     public static function LatestMac()
     {
-    	// return self::Latest();
-    	return "3.3.0";
+    	return self::Latest();
+    	//return "3.3.0";
     }
 
     public static function LatestBeta()
